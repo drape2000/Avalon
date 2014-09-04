@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AF10DB" Class="DatabaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ko11atcsn0.database.windows.net,1433;Initial Catalog=AF10DB;User ID=draper21" SettingsObjectName="Avalon.Properties.Settings" SettingsPropertyName="AF10DBConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.usp_InsertAvalonUserInput" Method="usp_InsertAvalonUserInput">
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usp_GetUsersAvalon" Method="usp_GetUsersAvalon">
+    <ElementType Name="usp_GetUsersAvalonResult">
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.ReturnAvalonCount" Method="ReturnAvalonCount">
+    <ElementType Name="ReturnAvalonCountResult">
+      <Column Name="COUNT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.usp_DeleteAvalonUser" Method="usp_DeleteAvalonUser">
+    <Parameter Name="UserName" Parameter="userName" Type="System.String" DbType="NVarChar(128)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

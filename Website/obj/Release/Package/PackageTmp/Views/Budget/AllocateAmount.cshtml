@@ -1,0 +1,35 @@
+﻿@model  List<Budget.FolderClass>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/Content/BudgetStyle.css"/>
+        <title>Budget Amount</title>
+    </head>
+
+    <body>
+         @using (Html.BeginForm("RunAllocateAmount", "Budget", FormMethod.Post, new { }))
+         {
+             <form>
+                 <div>
+                     <select id="allocate" name="Envelope" class="buttonCustom">
+                         <option value=""></option>
+                         @foreach (var item in Model)
+                         {
+                             <option name="@item.Envelope">@item.Envelope</option>
+
+                         }
+                     </select><br/>
+                     <input name="Amount" class="buttonCustom"/><a class="text">Amount</a><br/>
+                     <button type="submit" class="buttonCustom" style="margin-top: 2%">Change</button>
+                 </div>
+             </form>
+         }
+         <br/><button onclick="location.href ='index'" class="buttonCustom">Home</button>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+﻿@model  Website.Models.BudgetModel
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/Content/BudgetStyle.css"/>
+        <title>Update Budget</title>
+    </head>
+    <body>
+       @* <div>
+            @foreach (var item in Model.Folders)
+            {
+                if (item.Envelope == @Request.QueryString["envelopeValue"])
+                {
+                    <a style="color: whitesmoke; font-size: 50px">  @item.Balance @item.AllocatedAmount</a>
+                }
+
+            }
+        </div>*@
+
+        @using (Html.BeginForm("RunUpdateBudget", "Budget", new RouteValueDictionary() { {"envelopeValue", @Request.QueryString["envelopeValue"]} }))
+         {
+             <form>
+                 <div>
+                      @foreach (var item in Model.Folders)
+            {
+                if (item.Envelope == @Request.QueryString["envelopeValue"])
+                {
+                    <a style="color: #216C2A; font-size: 80px; margin-left: 1.5em;">@item.Envelope</a><br/>
+                    <a style=" color: #216C2A; font-size: 80px; margin-left: 1.5em;">  @item.Balance / @item.AllocatedAmount</a>
+                }
+
+            }
+                     <br/>
+                     <input type="hidden" value="@Request.QueryString["envelopeValue"]" name="envelopeValue"/>
+                     <input type="text" name="amount" value="" class="buttonCustom"/><a class="text">Amount</a><br/>
+                     <input type="text" name="store" value="" class="buttonCustom"/> <a class="text">Store</a><br/>
+                     <button type="submit"  class="buttonCustom">Update</button>
+                 </div>
+             </form>
+         }
+        <br/><button onclick="location.href ='index'" class="buttonCustom" style="margin-bottom: 6%;">Home</button><br/>
+        
+
+        <div>
+             @foreach (var item in Model.Balances)
+             {
+               <div style="margin-bottom: 2%;"> <a class="text" > @item.Store   </a> <a class="text"> @item.BalanceEntry </a><a class="text">&nbsp; --@item.Date</a> </div><br/>
+             }
+        </div>
+    </body>
+</html>

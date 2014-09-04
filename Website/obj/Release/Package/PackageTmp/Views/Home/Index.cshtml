@@ -1,0 +1,148 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>apps</title>
+</head>
+<body>
+    <div>
+        <p>Chris' Apps</p>
+    </div>
+
+    <div>
+        <a href="http://af10.azurewebsites.net/magpul/magpulapp" style="font-size: 1.5em;">Windage App</a><br />
+        <a href="http://af10.azurewebsites.net/Avalon/Avalon" style="font-size: 1.5em;">Avalon App</a><br />
+        <a href="http://af10.azurewebsites.net/tworooms/tworooms" style="font-size: 1.5em;">Two Rooms and a Boom App</a>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+@*@model Website.Models.IndexViewModel*@
+@*List<Website.Controllers.User>*@
+@*@{
+    ViewBag.Title = "Welcome to the site";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title"> 
+              <h1><@ViewBag.Title.</h1>
+              <h2 @Html.Raw(
+              
+              String.IsNullOrEmpty(ViewBag.Color) ? String.Empty :  string.Format("style=\"color:{0}\"", ViewBag.Color)
+              
+              )>@ViewBag.Message</h2>
+            </hgroup>
+         
+            
+        </div>
+    </section>
+}
+        <div style="width:100%">
+            <div style="width:25%; float:left; font-size:1.7em;">Name:</div>
+            <div style="width:25%; float:left; font-size:1.7em;">Total Days Read:</div>
+            <div style="width:25%; float:left; font-size:1.7em;">Days Read This Week:</div>
+            <div style="width:25%; float:left; font-size:1.7em;">Average Days Read:</div>
+            
+
+        </div>
+
+
+       <div style="width:100%">
+       <div style="clear:left; width:25%; float:left">
+        <ul style="list-style: none; font-size:1.4em;">
+            @foreach(var item in Model.myList)
+            {
+               <li> @item.Name</li> 
+               
+            }
+           </ul>
+           </div>
+
+            <div style="width:25%; float:left">
+        <ul style="list-style:none; font-size:1.4em;">
+            @foreach (var item in Model.myList)
+            {
+               
+               <li> @item.Total</li>
+                
+            }
+           </ul>
+           </div>*@
+
+        @*<div style="width:25%; float:left">
+        <ul style="list-style:none; font-size:1.4em;">
+            @foreach (var item in Model.myList)
+            {
+               
+               
+                if(item.daysRead == "")
+                {
+                    item.daysRead = "empty";
+                    
+                }
+                
+                <li> @item.daysRead</li>
+               
+                
+            }
+           </ul>
+           </div>
+
+           <div style="width:25%; float:left">
+        <ul style="list-style: none; font-size:1.4em;">
+            @foreach (var item in Model.myList)
+            {              
+                <li> @item.Average</li>
+            }
+           </ul>
+           </div>
+           </div>
+
+  <li class="one" style="list-style:none;">
+      
+        @using (Html.BeginForm("SubmitResults", "Home", FormMethod.Post, new {style="margin-top: 18em;" }))
+        {       
+            <div style="clear:left; width:30%;float:left; list-style:none;font-size:1.6em;">
+                Enter Points Scored:
+                <input type="text" name="DaysRead" value="" /><br />
+               @if(User.Identity.Name == "moroni" || User.Identity.Name == "Moroni")
+               {
+                    <input type="text" name="UserName" value="" /><br />
+               }
+               
+                <input type="submit" value="Submit" />
+            </div>
+            
+        }
+
+    </li>
+
+  @using (Html.BeginForm("DaysReadThisWeekPage", "Home", FormMethod.Post, new { style = "margin-top: 18em;" }))
+        {       
+            <div style="clear:left; width:30%;float:left; list-style:none;font-size:1.6em;">
+            
+                @if(User.Identity.Name == "moroni" || User.Identity.Name == "Moroni")           
+                {
+                     <input type="submit" value="Days Read This Week" />
+                }
+            </div>
+            
+        }
+
+<div style ="float:left; font-size: 1.5em; margin-left: 40%;">Total Average: <strong style ="color: blue;font-size: 1.5em;"> @Model.average</strong></div>*@@*@*@
+            
+ 
+
+  

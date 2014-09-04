@@ -1,0 +1,32 @@
+﻿@model  List<Budget.FolderClass>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/Content/BudgetStyle.css"/>
+        <title>title</title>
+    </head>
+    <body>
+         @using (Html.BeginForm("RunDeleteEnvelope", "Budget", FormMethod.Post, new { }))
+         {
+             <form>
+                 <div>
+                     <select id="delete" name="Envelope" class="buttonCustom">
+                         <option name=""></option>
+                         @foreach (var item in Model)
+                         {
+                             <option name="@item.Envelope">@item.Envelope</option>
+
+                         }
+                     </select><br/>
+                     <button type="submit" class="buttonCustom">Delete</button>
+                 </div>
+             </form>
+         }
+        <br/><button onclick="location.href ='index'" class="buttonCustom">Home</button>
+    </body>
+</html>

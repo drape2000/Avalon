@@ -1,0 +1,35 @@
+﻿@model Website.Models.AvalonViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AvalonCreateUserPage</title>
+</head>
+<body>
+    @using (Html.BeginForm("AvalonCreateUser", "Avalon", FormMethod.Post, new { }))
+    {
+        <div>
+            <p>Create User</p>
+            <input type="text" name="Name" value="" />Name<br />
+            <input type="text" name="PhoneNumber" value="" />Phone Number<br />
+
+
+            <select name="provider">
+                <option value="AT&T">AT&amp;T</option>
+                <option value="T-Mobile">T-Mobile</option>
+                <option value="Verizon">Verizon</option>
+                <option value="Sprint">Sprint</option>
+                <option value="Email">Email</option>
+                <option value="" selected="selected"> </option>
+            </select>
+            <input type="submit" value="Submit" style="height: 35px; width: 100px;margin-left: 2em;margin-top: 1em;" /><br /><br />
+            <hr>
+        </div>
+    }
+</body>
+</html>

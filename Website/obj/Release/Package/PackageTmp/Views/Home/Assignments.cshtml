@@ -1,0 +1,91 @@
+﻿@model Website.Models.AssignmentsModel
+@{
+    ViewBag.Title = "Input Info";
+}
+<!--
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+    <h2>@ViewBag.Message</h2>
+</hgroup>
+
+<article>
+    <p>
+        Use this area to provide additional information.
+    </p>
+
+    <p>
+        Use this area to provide additional information.
+    </p>
+
+    <p>
+        Use this area to provide additional information.
+    </p>
+</article>
+
+<aside>
+    <h3>Aside Title</h3>
+    <p>
+        Use this area to provide additional information.
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Assignments", "Assignments", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</aside>-->
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <!-- <h1><@ViewBag.Title.</h1>-->
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+
+
+        </div>
+    </section>
+}<div>
+    <p style="font-size:2em;">Bread Assignment: <strong>@Model.bread</strong> @Model.insertDate</p>
+    <p style="font-size:2em;">Usher One: <strong>@Model.name1</strong></p>
+    <p style="font-size:2em;">Usher Two: <strong>@Model.name2</strong></p>
+       @using (Html.BeginForm("AssignmentsAction", "Home", FormMethod.Post, new { style = "margin-top: 18em;" }))
+        {       
+            <div style="clear:left; width:30%;float:left; list-style:none;font-size:1.6em;margin-top:-15%;">
+                <select name="BreadList">
+                    <option value="Austin Taylor">Austin Taylor</option>
+                    <option value="Brit Judy">Brit Judy</option>
+                    <option value="Bryson DeMille">Bryson DeMille</option>
+                    <option value="Clayton Taylor">Clayton Taylor</option>
+                    <option value="Dexter Seamons">Dexter Seamons</option>
+                    <option value="Isaac Boden">Isaac Boden</option>
+                    <option value="Levi Dunne">Levi Dunne</option>
+                    <option value="Owen McCarrel">Owen McCarrel</option>
+                    <option value="Zach Johnson">Zach Johnson</option>
+                    <option value="" selected="selected"></option>
+                </select>
+                <input type="submit" value="Submit" />
+            </div>
+             <div style="clear:left; width:30%;float:left; list-style:none;font-size:1.6em;">
+                Ushers:
+                <input type="text" name="name1" value="" /><br />
+                <input type="text" name="name2" value="" /><br />
+                
+               
+                <input type="submit" value="Submit" />
+            </div>
+            
+        }
+ </div>
+@*<div style=" width:320px;height: 444px;font-size:1.1em;background-color: #C2B280;color: #6C541E;">
+                Range (meters):
+                <input type="text" name="Range" value="" style="background-color: #d3d3d3;" /><br />
+                 Windage M.P.H.:
+                <input type="text" name="Windage" value="" style="background-color: #d3d3d3;" /><br />
+                 Wind Direction:
+                <input type="text" name="WindDirection" value="" style="background-color: #d3d3d3;"/><br />
+               
+                <input type="submit" value="Submit" style="height: 35px; width: 100px;margin-left: 8em;margin-top: 4em;"/>
+                <p></p>
+                 <img src="https://lh4.googleusercontent.com/-OW2IS1saeC0/Ulh40m7SRSI/AAAAAAAABzU/_jTj-HkXZfI/w288-h295-no/windage.jpg" alt="windage" style="width:9em; position: absolute;margin-left: 25%; margin-top: 10%" />
+            </div>*@

@@ -1,0 +1,62 @@
+﻿@model  List<Budget.FolderClass>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="/Content/BudgetStyle.css" />
+    <title></title>
+    <style>
+        p.outset
+        {
+            border-style: outset;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        @foreach (var item in Model)
+        {
+               
+            <Button onclick="location.href = 'UpdateBudget?envelopeValue=@item.Envelope'" style="width: 40%; height: 20%; font-size: 4.2em; margin-top: 1%;margin-bottom: 2%;
+                        margin-right: 4%;margin-left: 3%; " >
+                <strong>@item.Envelope</strong>
+                <br />
+                @if (item.Balance < item.AllocatedAmount / 6)
+                {
+                    <a class="moneyValue" style="color: red;">@item.Balance</a>
+                    <strong>/ </strong>
+                    <a class="moneyValue">@item.AllocatedAmount</a>
+                    }
+                else if (item.Balance < item.AllocatedAmount / 2)
+                {
+                    <a class="moneyValue" style="color: yellow;">@item.Balance</a>
+                    <strong>/ </strong>
+                    <a class="moneyValue">@item.AllocatedAmount</a>
+                    }
+                else
+                {
+                    <a class="moneyValue">@item.Balance</a>
+                    <strong>/ </strong>
+                    <a class="moneyValue">@item.AllocatedAmount</a>
+                    }
+            </button>
+            
+                
+            }
+    </div>
+
+    <div>
+        <br />
+        <button onclick="location.href ='AdminPage'" class="buttonCustom">Admin</button>
+    </div>
+
+</body>
+</html>

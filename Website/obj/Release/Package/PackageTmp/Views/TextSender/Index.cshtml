@@ -1,0 +1,23 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>yo</title>
+    </head>
+    <body>
+         @using (Html.BeginForm("SendText", "TextSender", FormMethod.Post, new {}))
+         {
+             <div>
+                 <p style="font-size: 4em; ">Text:</p>
+                 <textarea rows="10" cols="30" name="message"></textarea><br/><br/>
+                 <button style="font-size: 4em" type="submit">Send</button>
+             </div>
+         }
+    </body>
+</html>

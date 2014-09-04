@@ -1,0 +1,25 @@
+﻿body {
+    background-color: beige;
+}
+.buttonCustom {
+     font-size: 5.75em;
+     width: 45%;
+    margin-left: 3%;
+    margin-top: 3%;
+    
+}
+button {
+    border-style: outset;
+    border-color: black;
+    color: #E0E0E0;
+    background-color: #216C2A;
+    
+}
+.text {
+    /*font-size: 3em;*/
+    font-size: 20px;
+    color: #216C2A;
+}
+.moneyValue {
+    color: #f5ffc2;
+}

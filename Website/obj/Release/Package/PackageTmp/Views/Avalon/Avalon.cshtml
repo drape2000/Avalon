@@ -1,0 +1,96 @@
+﻿@model Website.Models.AvalonViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="margin-left: 1em;">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Avalon</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <h2>Welcome to Avalon!</h2>
+               
+    </div>
+    @*<div>
+        <a onclick="location.href= 'AvalonCreateUserPage'">Create User</a>
+    </div>*@
+       @using (Html.BeginForm("AvalonCreateUser", "Avalon", FormMethod.Post, new { }))
+        {       
+            <div>
+                <form class="form-signin" role="form">
+                    <h2 class="form-signin-heading">Create User</h2>
+                    <input type="email" class="form-control" placeholder="Name" name="Name" value="" /><br />
+                    <input type="text" class="form-control" placeholder="Phone Number" name="PhoneNumber" value="" /><br />
+                    
+               
+                    <select class="form-control" name="provider">
+                        <option value="AT&T">AT&amp;T</option>
+                        <option value="T-Mobile">T-Mobile</option>
+                        <option value="Verizon">Verizon</option>
+                        <option value="Sprint">Sprint</option>
+                        <option value="Email">Email</option>
+                        <option value="" selected="selected"> </option>
+                    </select>
+                    <button class="btn btn-lg btn-primary btn-block" style="margin-top: 2em; height: 2.5em; width: 8em;" type="submit" value="Submit">Submit</button>
+                    <hr>
+                </form>
+            </div>
+           
+       }
+
+    @using (Html.BeginForm("AvalonNumberOfPlayers", "Avalon", FormMethod.Post, new { }))
+        { 
+    <div>
+        <form class="form-signin" role="form">
+            <h2 class="form-signin-heading">Number of Players</h2>
+
+            <select class="form-control" id="nopl" name="numberOfPlayers">
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="" selected="selected"> </option>
+            </select>
+
+            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" style="margin-top: 2em; height: 2.5em; width: 8em;" />
+        <hr />
+            </form>
+</div>
+     }
+    
+    @using (Html.BeginForm("AvalonDeleteUser", "Avalon", FormMethod.Post, new { }))
+    {
+        <div>
+            <form class="form-signin" role="form">
+                <h2 class="form-signin-heading">Delete User</h2>
+                <select class="form-control" name="delete">
+                    <option value=""></option>
+                    @foreach (var item in Model.avalonList)
+                    {
+                        <option value="@item.Name">@item.Name</option>
+
+                    }
+                </select>
+
+
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit" style="margin-top: 2em; height: 2.5em; width: 8em;" />
+                <br />
+                <hr>
+            </form>
+        </div>
+    }
+    
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/avalon.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    
+    
+</body>
+</html>

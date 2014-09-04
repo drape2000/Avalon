@@ -1,0 +1,29 @@
+﻿@model dynamic
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Create Envelope</title>
+    </head>
+    <link rel="stylesheet" type="text/css" href="/Content/BudgetStyle.css"/>
+    <body>
+        @using (Html.BeginForm("RunCreateEnvelope", "Budget", FormMethod.Post, new {}))
+        {
+            <div>
+                <form>
+                    <input type="text" name="Envelope" value="" class="buttonCustom"  /> <a class="text">Name</a><br/>
+                    <input type="text" name="Allocated" value="" class="buttonCustom" /> <a class="text">Budgeted Amount</a><br/>
+                    <input type="text" name="Balance" value="" class="buttonCustom"/> <a class="text">Balance</a><br/>
+                    <button  type="submit" class="buttonCustom" style="margin-top: 2%">Submit</button>
+                </form>
+
+            </div>
+        }
+        <button onclick="location.href ='index'" class="buttonCustom" class="text">Home</button>
+    </body>
+</html>

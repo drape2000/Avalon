@@ -1,0 +1,106 @@
+﻿@model Website.Models.AvalonViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html style="margin-left: 1em;">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Avalon</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div>
+       
+
+    </div>
+
+
+    @using (Html.BeginForm("AvalonNumberOfPlayers", "Avalon", FormMethod.Post, new { }))
+    { 
+        <div>
+            <form class="form-signin" role="form">
+                <h2 class="form-signin-heading">Create User</h2>
+
+                <select class="form-control" id="nopl"   name="numberOfPlayers">
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="" selected="selected"></option>
+                </select>
+
+                <button class="btn btn-lg btn-primary btn-block" style="margin-top: 2em; height: 2.5em; width: 8em;" type="submit" value="Submit">Submit</button>
+                <br />
+                </form>
+</div>
+    }
+
+    @using (Html.BeginForm("AvalonSpecialCharacters", "Avalon", FormMethod.Post, new { }))
+    { 
+        <div class="checkbox">
+            <form class="form-signin" role="form">
+                <h2 class="form-signin-heading">Select Characters</h2>
+
+                <div style="margin-left: 2em;">
+                    <input type="checkbox" name="Character" value="Merlin" checked>Merlin<br>
+                    <input type="checkbox" name="Character" value="Percival">Percival<br>
+
+
+                    <input type="checkbox" name="Character" value="Assassin" checked>Assassin<br>
+                    <input type="checkbox" name="Character" value="Mordred">Mordred<br>
+                    <input type="checkbox" name="Character" value="Morgana">Morgana<br>
+                    <input type="checkbox" name="Character" value="Oberon">Oberon<br>
+                    <input type="checkbox" name="Character" value="Lancelot">Lancelot<br>
+                </div>
+                @*<input type="submit" value="Submit" style="height: 20px; width: 80px; margin-left: 2em; margin-top: 1em;" />*@<br />
+            <br />
+                </form>
+
+</div>
+
+       
+        <div>
+            @* @if (Model.LastSelected != null) {
+            <span>
+                <input type="checkbox" name="AutoSelect" value="true" />
+                Use previous list (@Html.Raw(string.Join(", ", Model.LastSelected)))<br />
+            </span>
+            }
+        @if (Model.LastSelected == null) {*@
+            @Html.Hidden("AutoSelect", false)
+            @*}*@
+
+            @for (int i = 0; i < Model.intPlayers; i++)
+            {
+                bool autoSelected = false;
+                <select class="form-control" name="PlayerNames">
+
+                    @foreach (var item in Model.avalonList)
+                    {
+                        bool wasSelected = Model.LastSelected != null && Model.LastSelected.Count > i && Model.LastSelected[i] == item.Name;
+                        <option value="@item.Name" @Html.Raw(wasSelected ? " selected=\"selected\"" : "") >@item.Name</option>
+                        if (wasSelected) { autoSelected = true; }
+                    }
+                    @if (!autoSelected)
+                    {
+                        <option value="" selected="selected"></option>
+                    }
+                </select>
+                <br />
+            }
+
+            <button class="btn btn-lg btn-primary btn-block" style="margin-top: 2em; height: 2.5em; width: 8em;" type="submit" value="Submit">Submit</button>
+            <br />
+        </div>
+    }
+    <script src="~/Scripts/jquery-1.7.1.min.js"></script>
+    <script src="~/Scripts/avalon.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+</html>
